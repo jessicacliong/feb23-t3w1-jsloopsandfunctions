@@ -6,7 +6,7 @@
 // //function funcrionName(parameters) {block of stuff to do}
 
 // /**
-//  * 
+//  *
 //  * @param {string} customMessage Required! Some message to display.
 //  */
 // function greeterWithMessage(customMessage){
@@ -14,7 +14,7 @@
 // }
 
 // /**
-//  * 
+//  *
 //  * @param {string} customMessage Optional. Some message to display in the console.log output.
 //  */
 // function greeterwithDefault(customMessage = "default message"){
@@ -27,10 +27,10 @@
 
 
 
-// ES6 style
+// // ES6 style
 //Preferred style of notation in newer projects
 // /**
-//  * 
+//  *
 //  * @param {string} customMessage Optional. Some message.
 //  */
 // let greeterwithDefaultES6 = (customMessage = "default value again") =>{
@@ -47,14 +47,14 @@
 
 // let someComplexVariable = (someValue * someOtherValue - someResultFromSomeFunction())
 
-//IIFEs
+// //IIFEs
 
 // let someNewFunction = () => {
 
 // }
 
 // let someUserJwt = "blah blah pretend it's a JWT"
-// ((someUserJwt) => 
+// ((someUserJwt) =>
 // {
 //  // async checkJwtWithAPI(someUserJwt)
 //  console.log(someUserJwt);
@@ -65,24 +65,83 @@
 //   console.log(someUserJwt);
 //  }
 //  checkUserJwt();
-  
+
 
 // (() => {
 //   console.log("custome messsage from IIFE:" + customMessage);
 // })();
 
-//callbacks
+// //callbacks
 
-let someFuncionWithCallback = (someMessage, someCallback) => {
+// let someFuncionWithCallback = (someMessage, someCallback) => {
 
-  someCallback(someMessage);
+//   someCallback(someMessage);
 
+// }
+
+// let someFunctionWithCallback("hello world", console.log);
+
+// let someForm = (inputBox, callback) => {
+//   callback(inputBox);
+// }
+
+// someForm(emailBox, validateEmail);
+
+// //blocks and scope
+// different curly brackets mean different sections
+// watch out for global and local scopes
+
+// counter = 0; equivalent to below:
+// var counter = 0;
+
+// for (let index = 0; index <= 10; index++)
+// {
+//   let counter = 5;
+//   counter++;
+// }
+
+// console.log(counter);
+
+// //closures
+
+// function GameData(){
+
+//   let highScore = 0;
+
+//   function setHighScore(newNumber){
+//     highScore = newNumber;
+// }
+
+//   setHighScore(99);
+//   return highScore;
+
+// }
+
+// console.log(GameData());
+
+let eevee = {
+  name: "Eevee",
+  type: "normal",
+  attack: function () {
+    console.log("Eevee did an attack!");
+  },
+  ability: () => {
+    console.log("Some ability was triggered!! Woohoo!");
+  }
 }
 
-someFunctionWithCallback("hello world", console.log);
+// eevee.attack;
+// eevee.attack();
+// eevee.ability();
 
-let someForm = (inputBox, callback) => {
-  callback(inputBox);
-}
 
-someForm(emailBox, validateEmail);
+let eeveeAbility = eevee.ability;
+let eeveeCyclingSkillLevel = eevee.hobbies.cycling.skillLevel;
+let {ability, attack, name, type, hobbites: {cycling: {skillLevel}}} = eevee;
+
+console.log("Eevee's cycling skill level is: " + skillLevel):
+console.log("Eevee cycling skill with dot notation" + eeveeCyclingSkillLevel);
+
+
+eeveeAbility();
+ability();
